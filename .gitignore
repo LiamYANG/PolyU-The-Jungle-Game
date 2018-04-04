@@ -1,6 +1,11 @@
 # Compiled class file
 *.class
 
+# IntelliJ IDEA file
+PolyU-The-Jungle-Game.iml
+.idea/
+out/
+
 # Log file
 *.log
 
