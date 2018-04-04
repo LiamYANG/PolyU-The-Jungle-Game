@@ -16,6 +16,6 @@ public class OutputHandler {
     }
 
     public void printPrompt(String s) {
-
+        // no need to have new line
     }
 }
