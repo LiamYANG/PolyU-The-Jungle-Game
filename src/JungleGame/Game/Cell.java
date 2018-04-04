@@ -13,7 +13,7 @@ public class Cell {
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    void setAnimal(Animal animal) {
         this.animal = animal;
     }
 
