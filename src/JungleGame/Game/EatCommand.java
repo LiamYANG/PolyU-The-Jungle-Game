@@ -10,7 +10,7 @@ public class EatCommand extends GameCommand {
     }
 
     @Override
-    public void execute(Board board) {
+    public boolean execute(Board board) {
         // ...
     }
 }

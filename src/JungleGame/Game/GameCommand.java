@@ -12,7 +12,7 @@ public class GameCommand extends Command {
     }
 
     @Override
-    public void execute(Board board) {
+    public boolean execute(Board board) {
         Command command;
         Cell fromCell = board.getCell(fromX, fromY);
         Cell toCell = board.getCell(toX, toY);
@@ -20,20 +20,18 @@ public class GameCommand extends Command {
         // Invalid command case
         if (fromCell == null || toCell == null || fromCell.getAnimal() == null) {
             command = new InvalidCommand();
-            command.execute(board);
-            return;
+            return command.execute(board);
         }
 
         // Pure moving case
         if (toCell.getAnimal() == null) {
             command = new MoveCommand(fromX, fromY, toX, toY);
-            command.execute(board);
-            return;
+            return command.execute(board);
         }
 
         // Moving and eating case
         command = new EatCommand(fromX, fromY, toX, toY);
-        command.execute(board);
+        return command.execute(board);
     }
 
     protected int fromX, fromY, toX, toY;

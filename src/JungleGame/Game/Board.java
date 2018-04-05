@@ -54,4 +54,5 @@ public class Board {
     }
 
     private ArrayList<ArrayList<Cell>> cells;
+    private Game game;
 }

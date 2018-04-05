@@ -11,13 +11,15 @@ public class LoadCommand extends Command {
     }
 
     @Override
-    public void execute(Board board) {
+    public boolean execute(Board board) {
         OutputHandler out = OutputHandler.getOutputHandler();
 
         if (board.load(loadFile)) {
             out.printPrompt("Game loaded.\n");
+            return true;
         } else {
             out.printPrompt("Fail to load.\n");
+            return false;
         }
     }
 

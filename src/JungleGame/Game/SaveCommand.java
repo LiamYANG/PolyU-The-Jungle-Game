@@ -11,13 +11,15 @@ public class SaveCommand extends Command{
     }
 
     @Override
-    public void execute(Board board) {
+    public boolean execute(Board board) {
         OutputHandler out = OutputHandler.getOutputHandler();
 
         if (board.save(saveFile)) {
             out.printPrompt("Game saved.\n");
+            return true;
         } else {
             out.printPrompt("Fail to save.\n");
+            return false;
         }
     }
 
