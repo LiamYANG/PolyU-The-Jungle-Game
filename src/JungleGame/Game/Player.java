@@ -7,9 +7,9 @@ import JungleGame.IO.*;
  */
 public class Player {
     // TODO: Implement necessary methods
-    public Player(String name, int animalNum) {
+    public Player(String name, int numAnimal) {
         this.name = name;
-        this.animalNum = animalNum;
+        this.numAnimal = numAnimal;
         this.inputHandler = InputHandler.getInputHangler();
         this.outputHandler = OutputHandler.getOutputHandler();
     }
@@ -19,14 +19,14 @@ public class Player {
     }
 
     public int getAnimalNum() {
-        return animalNum;
+        return numAnimal;
     }
 
     void decreaseAnimalNum() {
-        if (animalNum > 0) {
-            --animalNum;
+        if (numAnimal > 0) {
+            --numAnimal;
         }
-        if (animalNum == 0) {
+        if (numAnimal == 0) {
             Game.onWinnerFound();
         }
     }
@@ -36,7 +36,7 @@ public class Player {
     }
 
     private String name;
-    private int animalNum;
+    private int numAnimal;
     private InputHandler inputHandler;
     private OutputHandler outputHandler;
 }
