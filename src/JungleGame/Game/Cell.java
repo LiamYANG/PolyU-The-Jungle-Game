@@ -3,10 +3,9 @@ package JungleGame.Game;
 /**
  * Created by Douglas Liu on 4/4/2018.
  */
-public class Cell {
-    public Cell(Animal animal, CellProperty  property) {
+public abstract class Cell {
+    public Cell(Animal animal) {
         this.animal = animal;
-        this.property = property;
     }
 
     public Animal getAnimal() {
@@ -17,14 +16,5 @@ public class Cell {
         this.animal = animal;
     }
 
-    public CellProperty getProperty() {
-        return property;
-    }
-
-    private Animal animal;
-    private CellProperty property;
-}
-
-enum CellProperty {
-    LAND, DEN, RIVER, TRAP
+    protected Animal animal;
 }
