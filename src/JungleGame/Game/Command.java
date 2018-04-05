@@ -5,7 +5,7 @@ package JungleGame.Game;
  */
 public abstract class Command {
     // TODO: Extend this class with different commands
-    public abstract void execute(Board board);
 
-    public abstract String toString();
+    // Return true when execute successfully
+    public abstract boolean execute(Board board);
 }
