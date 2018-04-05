@@ -26,24 +26,28 @@ public class MoveCommand extends GameCommand {
             return command.execute(board);
         }
 
-        // General case
         Cell toCell = board.getCell(toX, toY);
-        switch (toCell.getProperty()) {
-            case TRAP:
-                command = new MoveToTrapCommand(fromX, fromY, toX, toY);
-                break;
-            case DEN:
-                command = new MoveToDenCommand(fromX, fromY, toX, toY);
-                break;
-            case RIVER:
-                command = new MoveToRiverCommand(fromX, fromY, toX, toY);
-                break;
-            case LAND:
-                command = new MoveToLandCommand(fromX, fromY, toX, toY);
-                break;
-            default:
-                command = new InvalidCommand();
+
+        // Move to trap
+        if (toCell instanceof TrapCell) {
+            command = new MoveToTrapCommand(fromX, fromY, toX, toY);
+            return command.execute(board);
         }
+
+        // Move to Den
+        if (toCell instanceof DenCell) {
+            command = new MoveToDenCommand(fromX, fromY, toX, toY);
+            return command.execute(board);
+        }
+
+        // Move to River
+        if (toCell instanceof RiverCell) {
+            command = new MoveToRiverCommand(fromX, fromY, toX, toY);
+            return command.execute(board);
+        }
+
+        // General move
+        command = new MoveToLandCommand(fromX, fromY, toX, toY);
         return command.execute(board);
     }
 }
