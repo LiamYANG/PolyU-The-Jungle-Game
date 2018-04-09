@@ -4,7 +4,7 @@ package JungleGame.Game;
  * Created by Douglas Liu on 4/4/2018.
  */
 public class MoveCommand extends GameCommand {
-    // TODO: Implement execute()
+    // Only check player and location
     public MoveCommand(int fromX, int fromY, int toX, int toY) {
         super(fromX, fromY, toX, toY);
     }
@@ -16,6 +16,12 @@ public class MoveCommand extends GameCommand {
         // Check player
         Cell fromCell = board.getCell(fromX, fromY);
         if (Game.getCurPlayer() != fromCell.getAnimal().getOwner()) {
+            command = new InvalidCommand();
+            return command.execute(board);
+        }
+
+        // Check horizontal and vertical
+        if (fromX != toX && fromY != toY) {
             command = new InvalidCommand();
             return command.execute(board);
         }

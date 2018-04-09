@@ -3,36 +3,22 @@ package JungleGame.Game;
 import JungleGame.IO.OutputHandler;
 
 /**
- * Created by Douglas Liu on 4/4/2018.
+ * Created by Douglas Liu on 9/4/2018.
  */
-public class EatCommand extends GameCommand {
-    public EatCommand(int fromX, int fromY, int toX, int toY) {
+public class ElephantEatCommand extends EatCommand {
+    public ElephantEatCommand(int fromX, int fromY, int toX, int toY) {
         super(fromX, fromY, toX, toY);
     }
 
     @Override
     public boolean execute(Board board) {
         Animal eater = board.getCell(fromX, fromY).getAnimal();
-
-        // Check Elephant
-        if (eater instanceof Elephant) {
-            Command command = new ElephantEatCommand(fromX, fromY, toX, toY);
-            return command.execute(board);
-        }
-
-        // Check Rat
-        if (eater instanceof Rat) {
-            Command command = new RatEatCommand(fromX, fromY, toX, toY);
-            return command.execute(board);
-        }
-
-        // Normal eat
         Cell toCell = board.getCell(toX, toY);
         Animal eatee = toCell.getAnimal();
 
-        if (eater.getRank() < eatee.getRank() && !(toCell instanceof TrapCell)) {
+        if (eatee instanceof Rat || eater.getRank() < eatee.getRank() && !(toCell instanceof TrapCell)) {
             Command command = new InvalidCommand();
-            return command.execute(board);
+            return(command.execute(board));
         }
 
         Command command = new MoveCommand(fromX, fromY, toX, toY);
