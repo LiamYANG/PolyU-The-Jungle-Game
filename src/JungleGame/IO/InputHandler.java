@@ -7,7 +7,7 @@ import JungleGame.Game.Command;
  */
 public class InputHandler {
     // TODO: Implement with Singleton Pattern
-    public static InputHandler getInputHangler() {
+    public static InputHandler getInputHandler() {
         return null;
     }
 
