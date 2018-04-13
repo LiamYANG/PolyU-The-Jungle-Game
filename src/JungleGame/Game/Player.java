@@ -10,7 +10,7 @@ public class Player {
     public Player(String name, int numAnimal) {
         this.name = name;
         this.numAnimal = numAnimal;
-        this.inputHandler = InputHandler.getInputHangler();
+        this.inputHandler = InputHandler.getInputHandler();
         this.outputHandler = OutputHandler.getOutputHandler();
     }
 
