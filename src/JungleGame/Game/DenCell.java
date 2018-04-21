@@ -14,4 +14,9 @@ public class DenCell extends Cell {
     }
 
     private Player owner;
+
+    @Override
+    public String getType() {
+        return "DEN ";
+    }
 }

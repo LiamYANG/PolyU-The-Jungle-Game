@@ -16,5 +16,7 @@ public abstract class Cell {
         this.animal = animal;
     }
 
+    public abstract String getType();
+
     protected Animal animal;
 }

@@ -22,6 +22,8 @@ public abstract class Animal {
         return owner;
     }
 
+    public abstract String getType();
+
     private String name;
     private int rank;
     private Player owner;
