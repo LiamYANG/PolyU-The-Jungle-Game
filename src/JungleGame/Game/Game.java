@@ -26,4 +26,20 @@ public class Game {
     private static Board board;
     private static ArrayList<Player> players;
     private static int curPlayerIndex;
+
+    public static ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public static void setPlayers(ArrayList<Player> players) {
+        Game.players = players;
+    }
+
+    public static int getCurPlayerIndex() {
+        return curPlayerIndex;
+    }
+
+    public static void setCurPlayerIndex(int curPlayerIndex) {
+        Game.curPlayerIndex = curPlayerIndex;
+    }
 }
