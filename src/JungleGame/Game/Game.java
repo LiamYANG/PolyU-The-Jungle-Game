@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Game {
     public static void main() {
         // TODO: Put the final code here
+        board = new Board();
     }
 
     public static Player getCurPlayer() {
