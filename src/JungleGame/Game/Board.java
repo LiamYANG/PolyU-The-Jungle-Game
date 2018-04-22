@@ -13,15 +13,15 @@ public class Board {
     }
 
     public int getWidth() {
-        return cells.size();
-    }
-
-    public int getHeight() {
         return cells.get(0).size();
     }
 
+    public int getHeight() {
+        return cells.size();
+    }
+
     public Cell getCell(int row, int column) {
-        if (row < 0 || row > getWidth() || column < 0 || column > getHeight()) {
+        if (row < 0 || row > getHeight() || column < 0 || column > getWidth()) {
             return null;
         }
         return cells.get(row).get(column);

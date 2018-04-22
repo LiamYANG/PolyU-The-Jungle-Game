@@ -14,34 +14,9 @@ public class Game {
         OutputHandler out = OutputHandler.getOutputHandler();
 
         board = new Board();
+        board.load("src\\test.txt");
 
-        out.printPrompt("Welcome to the Jungle Game\n\n");
-
-        out.printPrompt("Please enter the name of the first player:\n");
-        players.get(0).setName(in.getString());
-        out.printPrompt("\nPlease enter the name of the second player:\n");
-        players.get(1).setName(in.getString());
-
-        out.printPrompt("\nNow the game start!\n\n");
-
-        Player curPlayer;
-        Command command;
-
-        out.draw(board);
-        while (!isFinished) {
-            curPlayer = getCurPlayer();
-
-            out.printPrompt("Player " + curPlayer.getName() + ", please enter your command:\n");
-            command = curPlayer.getCommand();
-            out.printPrompt("\n");
-
-            command.execute(board);
-            out.draw(board);
-            if (!isFinished) {
-                nextPlayer();
-            }
-        }
-        out.printPrompt("Winner is player " + getCurPlayer().getName() + "!!!");
+        System.out.println(board.getWidth() + " " + board.getHeight());
     }
 
     public static Player getCurPlayer() {
