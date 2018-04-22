@@ -27,6 +27,8 @@ public class MoveToDenCommand extends MoveCommand {
         OutputHandler out = OutputHandler.getOutputHandler();
         out.printPrompt(name + " move to Den.\n");
 
+        Game.onWinnerFound();
+
         return true;
     }
 }

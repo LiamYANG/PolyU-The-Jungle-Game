@@ -155,19 +155,6 @@ public class InputHandler {
         sb.delete(0, sb.length());
         return message;
     }
-
-    public static void main(String[] Args) {
-
-        Command something;
-        System.out.println((something = getInputHandler().getCommand()) instanceof GameCommand? "GameCommand; ": "");
-        System.out.println(something instanceof SaveCommand? "SaveCommand; ": "");
-        System.out.println(something instanceof LoadCommand? "LoadCommand; ": "");
-        System.out.println(something instanceof InvalidCommand? "InvalidCommand; ": "");
-
-
-    }
-
-
 }
 
 

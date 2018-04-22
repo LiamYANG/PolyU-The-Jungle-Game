@@ -6,16 +6,17 @@ import JungleGame.IO.*;
  * Created by Douglas Liu on 4/4/2018.
  */
 public class Player {
-    // TODO: Implement necessary methods
     public Player(String name, int numAnimal) {
         this.name = name;
         this.numAnimal = numAnimal;
-        this.inputHandler = InputHandler.getInputHandler();
-        this.outputHandler = OutputHandler.getOutputHandler();
     }
 
     public String getName() {
         return name;
+    }
+
+    void setName(String name) {
+        this.name = name;
     }
 
     public int getAnimalNum() {
@@ -32,11 +33,10 @@ public class Player {
     }
 
     public Command getCommand() {
-        return null;
+        InputHandler in = InputHandler.getInputHandler();
+        return in.getCommand();
     }
 
     private String name;
     private int numAnimal;
-    private InputHandler inputHandler;
-    private OutputHandler outputHandler;
 }

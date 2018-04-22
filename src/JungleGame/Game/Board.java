@@ -8,15 +8,8 @@ import java.util.ArrayList;
  * Created by Douglas Liu on 4/4/2018.
  */
 public class Board {
-    public static void main(String args[]) throws IOException {
-        Board b = new Board();
-        b.load("src\\1.txt");
-        b.save("src\\2.txt");
-    }
-
-    // TODO: Add and implement more necessary methods
     public Board() {
-        //...
+        load("src\\1.txt");
     }
 
     public int getWidth() {
@@ -211,6 +204,9 @@ public class Board {
 
     void removeAnimal(int row, int column) {
         Cell cell = getCell(row, column);
+        if (cell.getAnimal().getOwner() != null) {
+            cell.getAnimal().getOwner().decreaseAnimalNum();
+        }
         cell.setAnimal(null);
     }
 

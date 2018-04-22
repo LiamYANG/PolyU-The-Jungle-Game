@@ -13,16 +13,13 @@ public class OutputHandler {
     private static int textSize=5;
     private static JFrame f=new JFrame("The Jungle Game");
     private StringBuffer sb;
-  
-    private OutputHandler(){
-        f.setVisible(false);
-    }
 
     private volatile static OutputHandler handler = null;
 
     // lazy initialization with one static field containing the only OutputHandler
     private OutputHandler() {
         sb = new StringBuffer();
+        f.setVisible(false);
     }
 
     // check if the handler is null, then create or use the current one to return to caller. use synchronization to maintain thread-safe
@@ -87,8 +84,8 @@ public class OutputHandler {
         l.setForeground(Color.black);
         l.setLocation(board.getHeight()*cellWidth,board.getWidth()*cellWidth/2);
         f.add(l);
-        this.f.setSize(board.getWidth()*cellWidth+20,board.getHeight()*cellWidth+20);
-        this.f.setVisible(true);
+        f.setSize(board.getWidth()*cellWidth+20,board.getHeight()*cellWidth+20);
+        f.setVisible(true);
         f.repaint();
     }
 
