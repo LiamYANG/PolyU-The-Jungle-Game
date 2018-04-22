@@ -17,13 +17,19 @@ public class RatEatCommand extends EatCommand {
         Animal eater = fromCell.getAnimal();
         Animal eatee = toCell.getAnimal();
 
-        // Check River
+        // Check Eat from River
         if (fromCell instanceof RiverCell && !(toCell instanceof RiverCell)) {
             Command command = new InvalidCommand();
             return command.execute(board);
         }
 
-        if (eater.getRank() < eatee.getRank() && !(eater instanceof Elephant) && !(toCell instanceof TrapCell)) {
+        // Check Eat towards River
+        if (!(fromCell instanceof RiverCell) && toCell instanceof RiverCell) {
+            Command command = new InvalidCommand();
+            return command.execute(board);
+        }
+
+        if (eater.getRank() < eatee.getRank() && !(eatee instanceof Elephant) && !(toCell instanceof TrapCell)) {
             Command command = new InvalidCommand();
             return command.execute(board);
         }

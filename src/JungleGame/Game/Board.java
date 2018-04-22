@@ -130,7 +130,7 @@ public class Board {
                     if(line.split(" ").length == 4){
                         //System.out.println("Animal: " + line);
                         Animal animal= null;
-                        switch (line.split(" ")[1]){
+                        switch (line.split(" ")[0]){
                             case("ELEPHANT"):
                                 animal = new Elephant(line.split(" ")[1], Integer.parseInt(line.split(" ")[2]), playerArrayList.get(Integer.parseInt(line.split(" ")[3])));
                                 break;

@@ -12,6 +12,12 @@ public class EatCommand extends GameCommand {
 
     @Override
     public boolean execute(Board board) {
+        // Check Enemy
+        if (board.getCell(toX, toY).getAnimal().getOwner() == Game.getCurPlayer()) {
+            Command command = new InvalidCommand();
+            return command.execute(board);
+        }
+
         Animal eater = board.getCell(fromX, fromY).getAnimal();
 
         // Check Elephant

@@ -16,7 +16,16 @@ public class Game {
         board = new Board();
         board.load("src\\test.txt");
 
-        System.out.println(board.getWidth() + " " + board.getHeight());
+        System.out.println(board.getCell(0,0).getAnimal());
+        System.out.println(board.getCell(0,1).getAnimal());
+        System.out.println(board.getCell(0,2).getAnimal());
+
+        GameCommand command = new GameCommand(0,0,0,1);
+        command.execute(board);
+
+        System.out.println(board.getCell(0,0).getAnimal());
+        System.out.println(board.getCell(0,1).getAnimal());
+        System.out.println(board.getCell(0,2).getAnimal());
     }
 
     public static Player getCurPlayer() {
