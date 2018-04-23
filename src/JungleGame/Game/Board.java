@@ -21,7 +21,7 @@ public class Board {
     }
 
     public Cell getCell(int row, int column) {
-        if (row < 0 || row > getHeight() || column < 0 || column > getWidth()) {
+        if (row < 0 || row >= getHeight() || column < 0 || column >= getWidth()) {
             return null;
         }
         return cells.get(row).get(column);
@@ -130,7 +130,7 @@ public class Board {
                     if(line.split(" ").length == 4){
                         //System.out.println("Animal: " + line);
                         Animal animal= null;
-                        switch (line.split(" ")[0]){
+                        switch (line.split(" ")[1]){
                             case("ELEPHANT"):
                                 animal = new Elephant(line.split(" ")[1], Integer.parseInt(line.split(" ")[2]), playerArrayList.get(Integer.parseInt(line.split(" ")[3])));
                                 break;
